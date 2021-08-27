@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<ruleset name="PHP_CodeSniffer">
+
+    <description>PHPCS configuration file.</description>
+    <!-- check all files in the app directory, feel free to add more files with:
+    <file>FOLDER NAME</file>
+    -->
+    <file>src</file>
+
+    <!-- exclude our migrations directory from the violation check-->
+    <exclude-pattern>*/migrations/*</exclude-pattern>
+
+    <rule ref="PSR1">
+        <exclude-pattern>*.php</exclude-pattern>
+        <exclude name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps"/>
+
+        <exclude-pattern>database/*</exclude-pattern>
+    </rule>
+    <rule ref="PSR2">
+        <exclude name="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineCASE"/>
+        <properties>
+            <property name="lineLimit" value="130"/>
+            <property name="absoluteLineLimit" value="135"/>
+        </properties>
+    </rule>
+    <rule ref="PSR12"/>
+    <rule ref="Squiz.Arrays.ArrayDeclaration">
+        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNoNewline"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.NewlineBeforeOpenBrace"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoKeySpecified"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.KeySpecified"/>
+    </rule>
+</ruleset>
